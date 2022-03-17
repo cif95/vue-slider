@@ -43,14 +43,14 @@ const root = new Vue(
 				if ( this.activeItem === this.carouselItems.length - 1 ){
 						this.activeItem = 0;
 					} else {
-						this.activeItem = this.activeItem + 1;
+						this.activeItem++;
 					}
 			},
 			slidePrev : function(){
 				if ( this.activeItem === 0 ){
 						this.activeItem = this.carouselItems.length - 1;
 					} else {
-						this.activeItem = this.activeItem - 1;
+						this.activeItem--;
 					}
 			}
 		}

@@ -40,7 +40,7 @@
 									<div class="my-previous position-absolute" @click="slidePrev()">
 										<span class="my-prev-hook"></span>
 									</div>
-										<img class="carousel-thumbnails-item" :src="item.image" :alt="item.title" v-for="(item, index) in carouselItems" :class="(index == activeItem) ? 'active' : '' ">
+										<img class="carousel-thumbnails-item" :src="item.image" :alt="item.title" v-for="(item, index) in carouselItems" :class="(index == activeItem) ? 'active' : '' " @click="activeItem = index">
 									<!-- next -->
 									<div class="my-next position-absolute" @click="slideNext()">
 										<span class="my-next-hook"></span>

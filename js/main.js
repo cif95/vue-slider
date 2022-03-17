@@ -9,8 +9,9 @@ const root = new Vue(
 	{
 		el: '#root',
 		data: {
-			autoPlay:'',
 			activeItem : 0,
+			autoPlay: null,
+			isSlideForward : true,
 			carouselItems : [
 				{
 					image: "https://picsum.photos/775/540?random=1",
@@ -53,11 +54,18 @@ const root = new Vue(
 					} else {
 						this.activeItem--;
 					}
+			},
+			autoScroll : function(){
+				if(this.isSlideForward){
+					this.autoPlay = setInterval(this.slideNext, 3000);
+				} else {
+					this.autoPlay = setInterval(this.slidePrev, 3000);
+				}
+			},
+			stopAutoScroll : function(){
+				clearInterval(this.autoPlay);
+				this.autoPlay = null;
 			}
-		},
-		mounted(){
-			console.warn('mounted');
-			autoPlay = setInterval(this.slideNext, 3000);
 		},
 	}
 );

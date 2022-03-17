@@ -1,0 +1,92 @@
+body{
+	font-family: "Raleway";
+	background-color: #81D8D0;
+	overflow: hidden;
+}
+
+div.my-carousel-container{
+	min-height: 700px;
+	width: 900px;
+	margin: 0 auto;
+}
+
+div.my-carousel-images{
+	min-height: 540px;
+}
+
+figure.carousel-current-item{
+	border-radius: 10px;
+	display: none;
+	overflow: hidden;
+	box-shadow: 1px 5px 8px 6px rgba(0, 0, 0, 0.37)
+}
+
+figure.carousel-current-item,
+figure.carousel-current-item img{
+	height: 100%;
+	width: 100%;
+}
+
+figure.carousel-current-item.active{
+	display:inline-block;
+}
+
+figure.carousel-current-item,
+div.my-thumbnails .carousel-thumbnails-item{
+	transition: all 1s ease-in-out;
+}
+
+div.my-thumbnails{
+	display:flex;
+}
+
+div.my-thumbnails .carousel-thumbnails-item{
+	height:80px;
+	flex-shrink:0;
+	flex-grow:2;
+	flex-basis:140px;
+	margin:1rem .5rem;
+	border-radius:20px;
+	filter: brightness(.5);
+	box-shadow:0px 5px 7px 5px rgba(0, 0, 0, 0.37);
+}
+
+div.my-thumbnails .carousel-thumbnails-item.active{
+	filter: none;
+}
+
+
+div.my-previous,
+div.my-next{
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	padding: 5px;
+	background-color: rgba(255, 255, 255, .5);
+	z-index: 1;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+div.my-previous{
+	left: 1rem;
+}
+
+div.my-next{
+	right: 1rem;
+}
+
+div.my-previous > span::after{
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f104";
+	line-height: 30px;
+}
+
+div.my-next > span::after{
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f105";
+	line-height: 30px;
+}

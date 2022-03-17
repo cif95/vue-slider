@@ -13,6 +13,8 @@ const root = new Vue(
 			autoPlay: null,
 			isSlideForward : true,
 			isSwinging : false,
+			isPulsingNext : false,
+			isPulsingPrev : false,
 			carouselItems : [
 				{
 					image: "https://picsum.photos/775/540?random=1",
@@ -42,40 +44,40 @@ const root = new Vue(
 			],
 		},
 		methods: {
-			slideNext : function (){
+			slideNext : function() {
 				if ( this.activeItem === this.carouselItems.length - 1 ){
 						this.activeItem = 0;
 					} else {
 						this.activeItem++;
 					}
 			},
-			slidePrev : function(){
+			slidePrev : function() {
 				if ( this.activeItem === 0 ){
 						this.activeItem = this.carouselItems.length - 1;
 					} else {
 						this.activeItem--;
 					}
 			},
-			autoScroll : function(){
+			autoScroll : function() {
 				if(this.isSlideForward){
 					this.autoPlay = setInterval(this.slideNext, 3000);
 				} else {
 					this.autoPlay = setInterval(this.slidePrev, 3000);
 				}
 			},
-			stopAutoScroll : function(){
+			stopAutoScroll : function() {
 				clearInterval(this.autoPlay);
 				this.autoPlay = null;
 			},
-			reverseScroll : function(){
+			reverseScroll : function() {
 				this.isSlideForward = !this.isSlideForward;	
 			},
-			swing : function(){
+			swing : function() {
 				this.isSwinging = true;
 			},
-			stopSwing : function(){
+			stopSwing : function() {
 				this.isSwinging = false;
 			}
-		},
+		}
 	}
 );

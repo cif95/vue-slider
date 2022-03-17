@@ -26,23 +26,25 @@
 				<div class="row text-center">
 						<div class="col-12 p-5">
 							<div class="my-carousel-container d-flex flex-column px-5" id="my-carousel" @mouseOver="stopAutoScroll()"  @mouseLeave="autoScroll()">
-								<div class="my-carousel-images">
-									<figure class="carousel-current-item position-relative" v-for="(item, index) in carouselItems" :class="(index == activeItem) ? 'active' : '' ">
+								<div class="my-carousel-items">
+									<!-- carousel images -->
+									<figure class="my-item position-relative" v-for="(item, index) in carouselItems" :class="(index == activeItem) ? 'active' : '' ">
 										<img :src="item.image" :alt="item.title">
-										<figcaption id="carusel-info" class="position-absolute bottom-0 end-0 text-white text-end p-5">
-										<h2>{{item.title}}</h2>
-										<p>{{item.text}}</p>
+										<figcaption class="my-item-info position-absolute bottom-0 end-0 text-white text-end p-5">
+											<h2>{{item.title}}</h2>
+											<p>{{item.text}}</p>
 										</figcaption>
 									</figure>
 								</div>
-								<div class="my-thumbnails position-relative mb-3">
-									<!-- prev -->
-									<div class="my-previous position-absolute" @click="slidePrev()">
+								<div class="my-thumbs position-relative mb-3">
+									<!-- previous icon-->
+									<div class="my-previous position-absolute" @click="slidePrev()" @mouseOver="isPulsingPrev = true" @mouseLeave="isPulsingPrev = false" :class="(isPulsingPrev) ? 'pulse' : '' ">
 										<span class="my-prev-hook"></span>
 									</div>
-										<img class="carousel-thumbnails-item" :src="item.image" :alt="item.title" v-for="(item, index) in carouselItems" :class="(index == activeItem) ? 'active' : '' " @click="activeItem = index">
-									<!-- next -->
-									<div class="my-next position-absolute" @click="slideNext()">
+									<!-- thumbnails -->
+										<img class="my-thumb" :src="item.image" :alt="item.title" v-for="(item, index) in carouselItems" :class="(index == activeItem) ? 'active' : '' " @click="activeItem = index">
+									<!-- next icon-->
+									<div class="my-next position-absolute" @click="slideNext()" @mouseOver="isPulsingNext = true" @mouseLeave="isPulsingNext = false" :class="(isPulsingNext) ? 'pulse' : '' ">
 										<span class="my-next-hook"></span>
 									</div>
 								</div>

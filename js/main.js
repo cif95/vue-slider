@@ -9,6 +9,7 @@ const root = new Vue(
 	{
 		el: '#root',
 		data: {
+			autoPlay:'',
 			activeItem : 0,
 			carouselItems : [
 				{
@@ -53,6 +54,10 @@ const root = new Vue(
 						this.activeItem--;
 					}
 			}
-		}
+		},
+		mounted(){
+			console.warn('mounted');
+			autoPlay = setInterval(this.slideNext, 3000);
+		},
 	}
 );

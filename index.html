@@ -46,7 +46,7 @@
 										<span class="my-next-hook"></span>
 									</div>
 								</div>
-								<button @click="isSlideForward = !isSlideForward" class="reverse-slider btn btn-outline-secondary mx-auto">Reverse Slider Direction</button>
+								<button @click="reverseScroll()" @mouseOver="swing()" @mouseLeave="stopSwing()" :class="(isSwinging) ? 'swing' : '' " class="reverse-slider btn btn-outline-secondary mx-auto">Reverse Slider Direction</button>
 							</div>
 						</div>
 				</div>

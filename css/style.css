@@ -90,3 +90,18 @@ div.my-next > span::after{
 	content: "\f105";
 	line-height: 30px;
 }
+
+div.my-carousel-container button.swing{
+	animation:swing .7s ease-in-out infinite alternate;
+	transition: all 1s ease-in-out;
+	filter:drop-shadow(0 .2rem .2rem rgb(0, 0, 0, 0.37));
+}
+
+@keyframes swing{
+	from{
+		transform:translate3d(0, 0, 0);
+	}
+	to{
+		transform:translate3d(30px, 0px, 30px);
+	}
+}

@@ -12,6 +12,7 @@ const root = new Vue(
 			activeItem : 0,
 			autoPlay: null,
 			isSlideForward : true,
+			isSwinging : false,
 			carouselItems : [
 				{
 					image: "https://picsum.photos/775/540?random=1",
@@ -65,6 +66,15 @@ const root = new Vue(
 			stopAutoScroll : function(){
 				clearInterval(this.autoPlay);
 				this.autoPlay = null;
+			},
+			reverseScroll : function(){
+				this.isSlideForward = !this.isSlideForward;	
+			},
+			swing : function(){
+				this.isSwinging = true;
+			},
+			stopSwing : function(){
+				this.isSwinging = false;
 			}
 		},
 	}
